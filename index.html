@@ -121,43 +121,106 @@
     }
     
     
-    .round-buttons {
-    display: flex;
+   /* ----------------------------------------------------- */
+/*                RESPONSIVE: TABLETS (≤ 992px)          */
+/* ----------------------------------------------------- */
+@media (max-width: 992px) {
+
+  .round-buttons {
+    gap: 15px;
+  }
+
+  .round-buttons a {
+    width: 80px;
+    height: 80px;
+    font-size: 0.9rem;
+  }
+
+  .menu-row {
+    gap: 30px;
+  }
+
+  .menu-item {
+    padding-bottom: 100px;
+  }
+}
+
+
+/* ----------------------------------------------------- */
+/*                   MOBILE (≤ 768px)                    */
+/* ----------------------------------------------------- */
+@media (max-width: 768px) {
+
+  .round-buttons {
+    flex-wrap: wrap;
     gap: 20px;
-    margin: 20px 0;
     justify-content: center;
   }
 
   .round-buttons a {
-    width: 90px;
-    height: 90px;
-    background: #005bb5;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    width: 70px;
+    height: 70px;
+    font-size: 0.85rem;
   }
 
-  .round-buttons a:hover {
-    background: #003d80;
-    transform: scale(1.1);
-  }
-  
-   .menu-row {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
+  .menu-row {
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
   }
 
   .menu-item {
-    position: relative;
-    text-align: center;
+    flex: 1 1 45%;
+    padding-bottom: 80px;
+  }
+
+  /* Submenu adjustments for mobile */
+  .submenu {
+    position: static !important;
+    transform: none !important;
+    margin-top: 15px;
+    display: none;
+    width: 100%;
+    align-items: center;
+  }
+
+  .menu-item:hover .submenu,
+  .menu-item:focus-within .submenu {
+    display: flex;
+  }
+
+  .sub-btn {
+    width: 80%;
+    max-width: 220px;
+  }
+}
+
+
+/* ----------------------------------------------------- */
+/*             EXTRA SMALL SCREENS (≤ 480px)             */
+/* ----------------------------------------------------- */
+@media (max-width: 480px) {
+
+  .round-buttons a {
+    width: 60px;
+    height: 60px;
+    font-size: 0.75rem;
+  }
+
+  .menu-row {
+    gap: 20px;
+  }
+
+  .menu-item {
+    flex: 1 1 100%;
+    padding-bottom: 60px;
+  }
+
+  .sub-btn {
+    width: 90%;
+    font-size: 0.85rem;
+  }
+}
 
     /* Big hover area so submenu does NOT disappear */
     padding-bottom: 120px;
