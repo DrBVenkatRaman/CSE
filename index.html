@@ -183,7 +183,8 @@
     transform: scale(1.1);
   }
 
-  .submenu {
+  /* Base submenu styling */
+.submenu {
     position: absolute;
     top: 110px;
     left: 50%;
@@ -191,19 +192,19 @@
     display: none;
     flex-direction: column;
     gap: 10px;
-
-    /* Background hover box – prevents disappearing */
     padding: 10px;
-    background: transparent;
-  }
+    background: transparent; 
+    z-index: 999;
+}
 
-  /* Keep submenu visible when hovering on button OR submenu */
-  .menu-item:hover .submenu {
+.menu-item:hover .submenu,
+.menu-item:focus-within .submenu {
     display: flex;
-  }
+}
 
-  .sub-btn {
-    width: 120px;
+/* Buttons */
+.sub-btn {
+    width: 140px;
     padding: 10px;
     background: white;
     color: #003d80;
@@ -213,14 +214,63 @@
     font-size: 0.9rem;
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     transition: 0.3s;
-  }
+    text-align: center;
+}
 
-  .sub-btn:hover {
+.sub-btn:hover {
     background: #eef5ff;
     transform: scale(1.05);
-  }
-  
-  
+}
+
+/* ----------------------------------------------------- */
+/*                   RESPONSIVE DESIGN                   */
+/* ----------------------------------------------------- */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+    .submenu {
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .sub-btn {
+        width: 130px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+    .submenu {
+        top: 80px;
+        position: static;        /* fixes overflow issues */
+        transform: none;
+        display: none;
+        margin-top: 10px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .menu-item:hover .submenu,
+    .menu-item:focus-within .submenu {
+        display: flex;
+    }
+
+    .sub-btn {
+        width: 90%;
+        max-width: 250px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Very small screens (≤ 480px) */
+@media (max-width: 480px) {
+    .sub-btn {
+        width: 95%;
+        font-size: 0.85rem;
+    }
+}
+
   </style>
 </head>
 <body>
